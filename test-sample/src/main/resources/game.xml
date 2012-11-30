@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="john" class="zeileo.player.Player">
+		<constructor-arg ref="ia" />
+	</bean>
+
+	<bean id="jim" class="zeileo.player.Player">
+		<constructor-arg ref="ia" />
+	</bean>
+	
+
+
+	<bean id="deck" class="zeileo.card.Deck" factory-method="init32Cards" />
+
+	<bean id="zeileoRule" class="zeileo.rule.zeileo.ZeileoRule" />
+
+	<bean id="game" class="zeileo.game.Game" />
+
+	<beans profile="random">
+		<bean id="ia" class="zeileo.ia.random.RandomIA">
+			<constructor-arg>
+				<bean class="java.util.Random" />
+			</constructor-arg>
+		</bean>
+	</beans>
+
+	<beans profile="first">
+		<bean id="ia" class="zeileo.ia.first.FirstIA" />
+	</beans>
+</beans>
