@@ -2,6 +2,7 @@ package zeileo.player;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -39,7 +40,7 @@ public class Player {
 	}
 
 	public List<Card> getHand() {
-		return hand;
+		return Collections.unmodifiableList(hand);
 	}
 
 	public Card chooseACardToPlay(List<Card> choices) {

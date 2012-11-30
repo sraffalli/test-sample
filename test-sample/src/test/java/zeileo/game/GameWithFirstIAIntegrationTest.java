@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
@@ -21,7 +20,7 @@ import zeileo.rule.Rule;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:game.xml" })
 @ActiveProfiles({ "first" })
-@Ignore
+// @Ignore
 public class GameWithFirstIAIntegrationTest {
 
 	@Inject

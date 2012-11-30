@@ -1,9 +1,10 @@
 package zeileo.rule.zeileo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 import zeileo.card.Card;
@@ -12,6 +13,8 @@ import zeileo.rule.Rule;
 
 
 public class ZeileoRule implements Rule {
+
+	private final static Logger LOGGER = LoggerFactory.getLogger(ZeileoRule.class);
 
 	/**
 	 * The player can play a card that has the same value or the same color of the last played card, and if there is no
@@ -28,6 +31,7 @@ public class ZeileoRule implements Rule {
 		// if the previous card constraint doesn't exist
 		// the player can choose in his complete hand his next card to play
 		if (previousCards.isEmpty()) {
+			LOGGER.info("{} can choose any card of his hand");
 			return player.chooseACardToPlay(playerHand);
 		}
 
@@ -44,11 +48,13 @@ public class ZeileoRule implements Rule {
 		// if the player has no card to play,
 		// he takes all the previous played cards in his hand
 		if (choices.isEmpty()) {
+			LOGGER.info("{} doesn't have any card to play ! He takes the complete deck in his hand.");
 			player.addCardsToHand(previousCards);
-			// re call the play method
-			return play(Collections.<Card> emptyList(), player);
+			// the player pass
+			return null;
 		}
 
+		LOGGER.info("{} have to choose his card in function of the previous card");
 		// else choose a card
 		return player.chooseACardToPlay(choices);
 	}

@@ -25,7 +25,8 @@ public class Game {
 		deck.shuffle();
 
 		LOGGER.info("Distribute the cards to players...");
-		for (int i = 0; i < deck.size(); i++) {
+		int initialDeckSize = deck.size();
+		for (int i = 0; i < initialDeckSize; i++) {
 			players.get(i % players.size()).addCardsToHand(deck.distribute());
 		}
 
