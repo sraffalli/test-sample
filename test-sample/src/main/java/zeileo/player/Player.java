@@ -18,13 +18,15 @@ public class Player {
 	private final List<Card> hand = new ArrayList<Card>();
 
 	private final IA ia;
+	private final String name;
 
-	public Player() {
-		this.ia = new RandomIA(new Random());
+	protected Player(String name) {
+		this(new RandomIA(new Random()), name);
 	}
 
-	public Player(IA ia) {
+	public Player(IA ia, String name) {
 		this.ia = ia;
+		this.name = name;
 	}
 
 	public void addCardsToHand(List<Card> cards) {
@@ -41,6 +43,11 @@ public class Player {
 
 	public List<Card> getHand() {
 		return Collections.unmodifiableList(hand);
+	}
+
+	@Override
+	public String toString() {
+		return "Player[" + name + "]";
 	}
 
 	public Card chooseACardToPlay(List<Card> choices) {

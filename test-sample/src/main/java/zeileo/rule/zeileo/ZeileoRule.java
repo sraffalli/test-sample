@@ -1,6 +1,7 @@
 package zeileo.rule.zeileo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class ZeileoRule implements Rule {
 		// if the previous card constraint doesn't exist
 		// the player can choose in his complete hand his next card to play
 		if (previousCards.isEmpty()) {
-			LOGGER.info("{} can choose any card of his hand");
+			LOGGER.info("{} can choose any card of his hand", player);
 			return player.chooseACardToPlay(playerHand);
 		}
 
@@ -48,13 +49,13 @@ public class ZeileoRule implements Rule {
 		// if the player has no card to play,
 		// he takes all the previous played cards in his hand
 		if (choices.isEmpty()) {
-			LOGGER.info("{} doesn't have any card to play ! He takes the complete deck in his hand.");
+			LOGGER.info("{} doesn't have any card to play ! He takes the deck and chooses a new card.", player);
 			player.addCardsToHand(previousCards);
+			previousCards.clear();
 			// the player pass
-			return null;
+			return play(Collections.<Card> emptyList(), player);
 		}
 
-		LOGGER.info("{} have to choose his card in function of the previous card");
 		// else choose a card
 		return player.chooseACardToPlay(choices);
 	}

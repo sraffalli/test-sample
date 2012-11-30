@@ -32,7 +32,7 @@ public class PlayerTest {
 	 */
 	@Test
 	public void addCardsToHand() throws Exception {
-		Player p = new Player();
+		Player p = new Player("joe");
 		p.addCardsToHand(CARD1, CARD2);
 
 		Assert.assertEquals(2, p.getHandSize());
@@ -42,7 +42,7 @@ public class PlayerTest {
 
 	@Test
 	public void addCardsToHandWithNoEmptyHand() throws Exception {
-		Player p = new Player();
+		Player p = new Player("joe");
 
 		p.addCardsToHand(CARD1, CARD2);
 		p.addCardsToHand(Card.of(Value._3, Color.Heart), Card.of(Value._4, Color.Heart));
@@ -52,7 +52,7 @@ public class PlayerTest {
 
 	@Test
 	public void addCardsToHandWithNoEmptyHandAndSameCards() throws Exception {
-		Player p = new Player();
+		Player p = new Player("joe");
 
 		p.addCardsToHand(CARD1, CARD2);
 		p.addCardsToHand(CARD2, CARD1);
@@ -65,7 +65,7 @@ public class PlayerTest {
 	 */
 	@Test
 	public void chooseACardToPlay() throws Exception {
-		Player p = new Player(ia);
+		Player p = new Player(ia, "joe");
 		p.addCardsToHand(CARD1);
 		List<Card> choices = Arrays.asList(CARD1);
 
@@ -77,13 +77,13 @@ public class PlayerTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void chooseACardToPlayWithNullChoices() throws Exception {
-		Player p = new Player(ia);
+		Player p = new Player(ia, "joe");
 		p.chooseACardToPlay(null);
 	}
 
 	@Test
 	public void chooseACardToPlayWithEmptyChoices() throws Exception {
-		Player p = new Player(ia);
+		Player p = new Player(ia, "joe");
 
 		Assert.assertNull(p.chooseACardToPlay(Collections.<Card> emptyList()));
 		Assert.assertEquals(0, p.getHandSize());
@@ -91,7 +91,7 @@ public class PlayerTest {
 
 	@Test
 	public void chooseACardToPlayWithMultipleChoices() throws Exception {
-		Player p = new Player(ia);
+		Player p = new Player(ia, "joe");
 		p.addCardsToHand(CARD1, CARD2);
 		List<Card> choices = Arrays.asList(CARD1, CARD2);
 
@@ -103,7 +103,7 @@ public class PlayerTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void chooseACardToPlayWithChoiceNotInTheHand() throws Exception {
-		Player p = new Player(ia);
+		Player p = new Player(ia, "joe");
 		p.addCardsToHand(CARD2);
 		List<Card> choices = Arrays.asList(CARD1, CARD2);
 

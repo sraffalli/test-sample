@@ -7,10 +7,12 @@
 
 	<bean id="john" class="zeileo.player.Player">
 		<constructor-arg ref="ia" />
+		<constructor-arg value="john" />
 	</bean>
 
 	<bean id="jim" class="zeileo.player.Player">
 		<constructor-arg ref="ia" />
+		<constructor-arg value="jim" />
 	</bean>
 	
 
