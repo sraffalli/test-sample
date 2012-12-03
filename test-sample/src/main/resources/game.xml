@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="my8Rules" class="rules.my8.My8Rules" />
+	<bean id="myAmerican8Rules" class="rules.myamerican8.MyAmerican8Rules" />
 
 	<bean id="game" class="game.Game" />
 
