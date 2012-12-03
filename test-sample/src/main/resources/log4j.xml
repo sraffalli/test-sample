@@ -17,7 +17,7 @@
 
 
 	<logger name="zeileo" additivity="false">
-		<level value="INFO" />
+		<level value="ERROR" />
 		<appender-ref ref="console" />
 	</logger>
 	

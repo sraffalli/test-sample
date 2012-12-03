@@ -29,6 +29,10 @@ public class Player {
 		this.name = name;
 	}
 
+	public void flushHand() {
+		hand.clear();
+	}
+
 	public void addCardsToHand(List<Card> cards) {
 		hand.addAll(cards);
 	}

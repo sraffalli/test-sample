@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import zeileo.card.Card;
 import zeileo.card.Color;
@@ -15,16 +17,35 @@ import zeileo.card.Value;
 import zeileo.ia.IA;
 
 
+@RunWith(MockitoJUnitRunner.class)
 public class PlayerTest {
 
 	private static final Card CARD1 = Card.of(Value._1, Color.Heart);
 	private static final Card CARD2 = Card.of(Value._2, Color.Heart);
 
-	private final IA ia = Mockito.mock(IA.class);
+	@Mock
+	private IA ia;
 
-	@Before
-	public void setup() {
-		Mockito.reset(ia);
+	/*
+	 * flushHand()
+	 */
+	@Test
+	public void flushHandWithNotEmptyHand() throws Exception {
+		Player p = new Player("joe");
+		p.addCardsToHand(CARD1, CARD2);
+
+		Assert.assertEquals(2, p.getHandSize());
+		p.flushHand();
+		Assert.assertEquals(0, p.getHandSize());
+	}
+
+	@Test
+	public void flushHandWithEmptyHand() throws Exception {
+		Player p = new Player("joe");
+
+		Assert.assertEquals(0, p.getHandSize());
+		p.flushHand();
+		Assert.assertEquals(0, p.getHandSize());
 	}
 
 	/*

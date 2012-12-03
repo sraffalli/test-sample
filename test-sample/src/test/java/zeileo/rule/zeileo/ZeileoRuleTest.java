@@ -1,35 +1,36 @@
 package zeileo.rule.zeileo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import junit.framework.Assert;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import zeileo.card.Card;
 import zeileo.card.Color;
 import zeileo.card.Value;
 import zeileo.player.Player;
 import zeileo.rule.Rule;
-import zeileo.rule.zeileo.ZeileoRule;
 
 
+@RunWith(MockitoJUnitRunner.class)
 public class ZeileoRuleTest {
 
-	private final Player p1 = Mockito.mock(Player.class);
-	private final Player p2 = Mockito.mock(Player.class);
-	private final Player p3 = Mockito.mock(Player.class);
+	@Mock
+	private Player p1;
+	@Mock
+	private Player p2;
+	@Mock
+	private Player p3;
 
 	private final Rule rule = new ZeileoRule();
-
-	@Before
-	public void setup() {
-		Mockito.reset(p1, p2, p3);
-	}
 
 	/*
 	 * shouldStopGame()
@@ -122,7 +123,8 @@ public class ZeileoRuleTest {
 
 		Mockito.when(p1.chooseACardToPlay(nextHand)).thenReturn(card2);
 
-		Card result = rule.play(Arrays.asList(card2), p1);
+		// Arrays.asList doesn't support remove() -> have to create a new list
+		Card result = rule.play(new ArrayList<Card>(Arrays.asList(card2)), p1);
 		Assert.assertEquals(card2, result);
 	}
 
@@ -138,7 +140,8 @@ public class ZeileoRuleTest {
 
 		Mockito.when(p1.chooseACardToPlay(Arrays.asList(card, card2))).thenReturn(card2);
 
-		Card result = rule.play(Arrays.asList(card3), p1);
+		// Arrays.asList doesn't support remove() -> have to create a new list
+		Card result = rule.play(new ArrayList<Card>(Arrays.asList(card3)), p1);
 		Assert.assertEquals(card2, result);
 	}
 }

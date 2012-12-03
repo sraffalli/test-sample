@@ -27,6 +27,16 @@ public class Deck {
 		return deck;
 	}
 
+	public static Deck init52Cards() {
+		Deck deck = new Deck();
+		for (Color color : Color.values()) {
+			for (Value value : Value.values()) {
+				deck.cards.add(Card.of(value, color));
+			}
+		}
+		return deck;
+	}
+
 	public int size() {
 		return cards.size();
 	}

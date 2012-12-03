@@ -59,6 +59,12 @@ public class Game {
 		LOGGER.info("No player can play anymore, the game is finished !");
 
 		// find the winner at the end of the game
-		return rule.findWinner(players);
+		Player winner = rule.findWinner(players);
+
+		// flush all hands
+		for (Player player : players) {
+			player.flushHand();
+		}
+		return winner;
 	}
 }

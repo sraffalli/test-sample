@@ -4,21 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-	<bean id="john" class="zeileo.player.Player">
-		<constructor-arg ref="ia" />
-		<constructor-arg value="john" />
-	</bean>
-
-	<bean id="jim" class="zeileo.player.Player">
-		<constructor-arg ref="ia" />
-		<constructor-arg value="jim" />
-	</bean>
-	
-
-
-	<bean id="deck" class="zeileo.card.Deck" factory-method="init32Cards" />
-
 	<bean id="zeileoRule" class="zeileo.rule.zeileo.ZeileoRule" />
 
 	<bean id="game" class="zeileo.game.Game" />

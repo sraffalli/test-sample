@@ -5,19 +5,21 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import zeileo.card.Card;
 import zeileo.card.Color;
 import zeileo.card.Deck;
 import zeileo.card.Value;
-import zeileo.game.Game;
 import zeileo.player.Player;
 import zeileo.rule.zeileo.ZeileoRule;
 
 
+@RunWith(MockitoJUnitRunner.class)
 public class GameTest {
 
 	private static final Card _1_CLUB = Card.of(Value._1, Color.Club);
@@ -25,17 +27,16 @@ public class GameTest {
 	private static final Card _1_SPADE = Card.of(Value._1, Color.Spade);
 	private static final Card _1_HEART = Card.of(Value._1, Color.Heart);
 
-	private final ZeileoRule rule = Mockito.mock(ZeileoRule.class);
-	private final Deck deck = Mockito.mock(Deck.class);
-	private final Player p1 = Mockito.mock(Player.class);
-	private final Player p2 = Mockito.mock(Player.class);
+	@Mock
+	private ZeileoRule rule;
+	@Mock
+	private Deck deck;
+	@Mock
+	private Player p1;
+	@Mock
+	private Player p2;
 
 	private final Game game = new Game();
-
-	@Before
-	public void setup() {
-		Mockito.reset(deck, rule);
-	}
 
 	@Test
 	public void playAGameWithOnePlayerFinishedHand() throws Exception {

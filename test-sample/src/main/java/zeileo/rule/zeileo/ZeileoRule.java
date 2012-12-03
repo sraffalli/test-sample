@@ -52,6 +52,7 @@ public class ZeileoRule implements Rule {
 			LOGGER.info("{} doesn't have any card to play ! He takes the deck and chooses a new card.", player);
 			player.addCardsToHand(previousCards);
 			previousCards.clear();
+
 			// the player pass
 			return play(Collections.<Card> emptyList(), player);
 		}
