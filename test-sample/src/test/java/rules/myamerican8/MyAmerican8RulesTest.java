@@ -1,4 +1,4 @@
-package rules.my8;
+package rules.myamerican8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import player.Player;
 import rules.Rules;
-import rules.my8.My8Rules;
+import rules.myamerican8.MyAmerican8Rules;
 
 import card.Card;
 import card.Color;
@@ -24,7 +24,7 @@ import card.Value;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class My8RulesTest {
+public class MyAmerican8RulesTest {
 
 	@Mock
 	private Player p1;
@@ -33,7 +33,7 @@ public class My8RulesTest {
 	@Mock
 	private Player p3;
 
-	private final Rules rules = new My8Rules();
+	private final Rules rules = new MyAmerican8Rules();
 
 	/*
 	 * shouldStopGame()

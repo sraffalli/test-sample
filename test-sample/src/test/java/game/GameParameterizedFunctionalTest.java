@@ -22,7 +22,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import player.Player;
 import rules.Rules;
-import rules.my8.My8Rules;
+import rules.myamerican8.MyAmerican8Rules;
 
 import card.Deck;
 import categories.TestCategories.FunctionalTest;
@@ -49,7 +49,7 @@ public class GameParameterizedFunctionalTest {
 
 	@Parameters
 	public static Collection<Object[]> data() {
-		My8Rules my8Rules = new My8Rules();
+		MyAmerican8Rules my8Rules = new MyAmerican8Rules();
 		IA firstIA = new FirstIA();
 		IA randomIA = new RandomIA(new Random());
 

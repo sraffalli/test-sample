@@ -14,7 +14,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import player.Player;
-import rules.my8.My8Rules;
+import rules.myamerican8.MyAmerican8Rules;
 
 import card.Card;
 import card.Color;
@@ -32,7 +32,7 @@ public class GameTest {
 	private static final Card _1_HEART = Card.of(Value._1, Color.Heart);
 
 	@Mock
-	private My8Rules rule;
+	private MyAmerican8Rules rule;
 	@Mock
 	private Deck deck;
 	@Mock

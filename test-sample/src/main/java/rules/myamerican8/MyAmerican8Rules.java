@@ -1,4 +1,4 @@
-package rules.my8;
+package rules.myamerican8;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,9 +15,9 @@ import card.Card;
 
 
 
-public class My8Rules implements Rules {
+public class MyAmerican8Rules implements Rules {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(My8Rules.class);
+	private final static Logger LOGGER = LoggerFactory.getLogger(MyAmerican8Rules.class);
 
 	/**
 	 * The player can play a card that has the same value or the same color of the last played card, and if there is no
