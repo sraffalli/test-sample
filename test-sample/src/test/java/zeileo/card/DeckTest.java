@@ -3,7 +3,6 @@ package zeileo.card;
 import org.junit.Assert;
 import org.junit.Test;
 
-import zeileo.NoMoreCardException;
 import zeileo.card.Card;
 import zeileo.card.Color;
 import zeileo.card.Deck;

@@ -71,7 +71,7 @@ public class ZeileoRule implements Rule {
 	}
 
 	/**
-	 * The winner is the player who has player all his cards or, the player with the less of cards at the end of the
+	 * The winner is the player who has played all his cards or, the player with the less of cards at the end of the
 	 * game.
 	 */
 	public Player findWinner(List<Player> players) {

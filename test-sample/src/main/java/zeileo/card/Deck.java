@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import zeileo.NoMoreCardException;
 
 
 public class Deck {
@@ -41,10 +40,6 @@ public class Deck {
 		return cards.size();
 	}
 
-	protected List<Card> getCards() {
-		return cards;
-	}
-
 	public void shuffle() {
 		Collections.shuffle(cards);
 	}
@@ -54,5 +49,9 @@ public class Deck {
 			throw new NoMoreCardException();
 		}
 		return cards.remove(0);
+	}
+
+	protected List<Card> getCards() {
+		return cards;
 	}
 }
