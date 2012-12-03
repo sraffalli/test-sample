@@ -9,14 +9,11 @@ import org.springframework.util.StringUtils;
 
 import player.Player;
 import rules.Rules;
-
 import card.Card;
 import card.Deck;
 
 
-
 public class Game {
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(Game.class);
 
 	public Player playAGame(Rules rule, Deck deck, List<Player> players) {

@@ -10,9 +10,7 @@ import org.springframework.util.Assert;
 
 import player.Player;
 import rules.Rules;
-
 import card.Card;
-
 
 
 public class MyAmerican8Rules implements Rules {
@@ -49,17 +47,17 @@ public class MyAmerican8Rules implements Rules {
 		}
 
 		// if the player has no card to play,
-		// he takes all the previous played cards in his hand
+		// he takes all the previous played cards into his hand
 		if (choices.isEmpty()) {
 			LOGGER.info("{} doesn't have any card to play ! He takes the deck and chooses a new card.", player);
 			player.addCardsToHand(previousCards);
 			previousCards.clear();
 
-			// the player pass
+			// the player chooses a new card
 			return play(Collections.<Card> emptyList(), player);
 		}
 
-		// else choose a card
+		// else he chooses a card
 		return player.chooseACardToPlay(choices);
 	}
 

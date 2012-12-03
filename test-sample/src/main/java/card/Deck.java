@@ -5,35 +5,35 @@ import java.util.Collections;
 import java.util.List;
 
 
-
 public class Deck {
 
-	private final List<Card> cards = new ArrayList<Card>();
+	private final List<Card> cards;
 
-	private Deck() {
+	protected Deck(List<Card> cards) {
+		this.cards = cards;
 	}
 
 	public static Deck init32Cards() {
-		Deck deck = new Deck();
+		List<Card> cards = new ArrayList<Card>();
 		for (Color color : Color.values()) {
 			for (Value value : Value.values()) {
 				if (value.ordinal() < 5) {
 					continue;
 				}
-				deck.cards.add(Card.of(value, color));
+				cards.add(Card.of(value, color));
 			}
 		}
-		return deck;
+		return new Deck(cards);
 	}
 
 	public static Deck init52Cards() {
-		Deck deck = new Deck();
+		List<Card> cards = new ArrayList<Card>();
 		for (Color color : Color.values()) {
 			for (Value value : Value.values()) {
-				deck.cards.add(Card.of(value, color));
+				cards.add(Card.of(value, color));
 			}
 		}
-		return deck;
+		return new Deck(cards);
 	}
 
 	public int size() {
