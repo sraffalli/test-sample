@@ -19,9 +19,9 @@ test-sample
 
 ## Contracts
 
-### Card
-* Have a Value (2,3,..10,J,Q,K,1) and a Color (Heart, Spade, Club, Diamond)
-* Two cards with the same value and the same color are equals
+### Cards
+* Have a Value (2,3,..10,J,Q,K,1) and a Color (Hearts, Spades, Clubs, Diamonds)
+* Two cards with the same value and the same color are equal
 
 ### Deck 
 * initialize a deck of 32 cards
@@ -31,7 +31,7 @@ test-sample
 ### Player
 * add a card into his hand
 * choose a card to play
-* flush his hand
+* reset his hand
 
 ### Rules
 * specify which cards a player can play at his round
@@ -40,9 +40,9 @@ test-sample
 
 ### "My american's 8" Rules
 
-1. We distribute all the cards one by one to each player
+1. Distribute all the cards one by one to each player
 2. The first player plays one card of his choice
-3. Then, by turns, each player can play a card with the same value or the same color than the previous card. If he can't play, he takes all played cards into his hand, and chooses a new card to play.
+3. Then, by turns, each player can play a card with the same value or the same color as the previous card. If he can't play, he takes all played cards into his hand, and chooses a new card to play.
 4. The first player who plays his last card wins the game; or if no player can play a card anymore, the winner is the player with the less cards in his hand.
 
 
