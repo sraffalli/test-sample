@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="zeileoRule" class="zeileo.rule.zeileo.ZeileoRule" />
+	<bean id="my8Rules" class="rules.my8.My8Rules" />
 
-	<bean id="game" class="zeileo.game.Game" />
+	<bean id="game" class="game.Game" />
 
 	<beans profile="random">
-		<bean id="ia" class="zeileo.ia.random.RandomIA">
+		<bean id="ia" class="ia.random.RandomIA">
 			<constructor-arg>
 				<bean class="java.util.Random" />
 			</constructor-arg>
@@ -17,6 +17,6 @@
 	</beans>
 
 	<beans profile="first">
-		<bean id="ia" class="zeileo.ia.first.FirstIA" />
+		<bean id="ia" class="ia.first.FirstIA" />
 	</beans>
 </beans>

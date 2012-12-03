@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.eileo</groupId>
+	<groupId>org.samples</groupId>
 	<artifactId>test-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
@@ -65,7 +65,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.12.4</version>
 				<configuration>
-					<excludedGroups>zeileo.TestCategories$IntegrationTest,zeileo.TestCategories$FunctionalTest</excludedGroups>
+					<excludedGroups>categories.TestCategories$IntegrationTest,categories.TestCategories$FunctionalTest</excludedGroups>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -79,8 +79,8 @@
 					<plugin>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<groups>zeileo.TestCategories$IntegrationTest</groups>
-							<excludedGroups>zeileo.TestCategories$FunctionalTest</excludedGroups>
+							<groups>categories.TestCategories$IntegrationTest</groups>
+							<excludedGroups>categories.TestCategories$FunctionalTest</excludedGroups>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -93,8 +93,8 @@
 					<plugin>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<groups>zeileo.TestCategories$FunctionalTest</groups>
-							<excludedGroups>zeileo.TestCategories$IntegrationTest</excludedGroups>
+							<groups>categories.TestCategories$FunctionalTest</groups>
+							<excludedGroups>categories.TestCategories$IntegrationTest</excludedGroups>
 						</configuration>
 					</plugin>
 				</plugins>

@@ -16,11 +16,6 @@
 	</appender>
 
 
-	<logger name="zeileo" additivity="false">
-		<level value="ERROR" />
-		<appender-ref ref="console" />
-	</logger>
-	
 	<root>
 		<priority value="ERROR" />
 		<appender-ref ref="consoleError" />
