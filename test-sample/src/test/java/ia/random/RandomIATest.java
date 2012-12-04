@@ -1,7 +1,6 @@
 package ia.random;
 
 import ia.IA;
-import ia.random.RandomIA;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,7 +8,6 @@ import java.util.Random;
 
 import junit.framework.Assert;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -18,17 +16,11 @@ import card.Color;
 import card.Value;
 
 
-
 public class RandomIATest {
 
 	private final Random random = Mockito.mock(Random.class);
 
 	private final IA ia = new RandomIA(random);
-
-	@Before
-	public void setup() {
-		Mockito.reset(random);
-	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void chooseWithNull() throws Exception {
