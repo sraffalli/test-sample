@@ -17,10 +17,9 @@ public class Deck {
 		List<Card> cards = new ArrayList<Card>();
 		for (Color color : Color.values()) {
 			for (Value value : Value.values()) {
-				if (value.ordinal() < 5) {
-					continue;
+				if (value.ordinal() > Value._6.ordinal()) {
+					cards.add(Card.of(value, color));
 				}
-				cards.add(Card.of(value, color));
 			}
 		}
 		return new Deck(cards);

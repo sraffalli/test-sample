@@ -5,7 +5,6 @@
 	<artifactId>test-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -58,9 +57,15 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.9.5</version>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>1.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>1.5</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -70,14 +75,27 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.12.4</version>
-				<configuration>
-					<excludedGroups>categories.TestCategories$IntegrationTest,categories.TestCategories$FunctionalTest</excludedGroups>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
 	<profiles>
+		<profile>
+			<id>unit-tests</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<excludedGroups>categories.TestCategories$IntegrationTest,categories.TestCategories$FunctionalTest</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 			<id>integration-tests</id>
 			<build>
@@ -86,7 +104,6 @@
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
 							<groups>categories.TestCategories$IntegrationTest</groups>
-							<excludedGroups>categories.TestCategories$FunctionalTest</excludedGroups>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -100,7 +117,6 @@
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
 							<groups>categories.TestCategories$FunctionalTest</groups>
-							<excludedGroups>categories.TestCategories$IntegrationTest</excludedGroups>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -112,9 +128,6 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<groups></groups>
-						</configuration>
 					</plugin>
 				</plugins>
 			</build>

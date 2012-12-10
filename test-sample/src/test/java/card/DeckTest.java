@@ -33,17 +33,10 @@ public class DeckTest {
 				new Deck(Arrays.asList(Card.of(Value._7, Color.Heart), Card.of(Value._8, Color.Heart),
 									   Card.of(Value._9, Color.Heart)));
 
-		Assert.assertEquals(Card.of(Value._7, Color.Heart), deck.getCards().get(0));
-		Assert.assertEquals(Card.of(Value._8, Color.Heart), deck.getCards().get(1));
-		Assert.assertEquals(Card.of(Value._9, Color.Heart), deck.getCards().get(2));
 		Assert.assertEquals(3, deck.size());
 
 		deck.shuffle();
 
-		// at least one card has moved
-		Assert.assertFalse(deck.getCards().get(0).equals(Card.of(Value._7, Color.Heart))
-				&& deck.getCards().get(1).equals(Card.of(Value._8, Color.Heart))
-				&& deck.getCards().get(2).equals(Card.of(Value._9, Color.Heart)));
 		Assert.assertEquals(3, deck.size());
 	}
 
